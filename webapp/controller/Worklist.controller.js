@@ -59,7 +59,20 @@ sap.ui.define(
         /* =========================================================== */
         /* event handlers                                              */
         /* =========================================================== */
-
+        /**
+         * Event handler when a table item gets pressed
+         * @param {sap.ui.base.Event} oEvent the table selectionChange event
+         * @public
+         */
+        onPress: function (oEvent) {
+          this.getRouter().navTo("post", {
+            // The source is the list item that got pressed
+            postId: oEvent
+              .getSource()
+              .getBindingContext()
+              .getProperty("PostID"),
+          });
+        },
         /**
          * Triggered by the table's 'updateFinished' event: after new table
          * data is available, this handler method updates the table counter.
