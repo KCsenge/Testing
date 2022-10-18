@@ -23,4 +23,15 @@ sap.ui.define(["sap/ui/test/opaQunit", "./pages/Worklist"], function (opaTest) {
     // Cleanup
     Then.iTeardownMyApp();
   });
+
+  opaTest("Should be able to search for items", function (Given, When, Then) {
+    //Actions
+    When.onTheWorklistPage.iSearchFor("Bear");
+
+    // Assertions
+    Then.onTheWorklistPage.theTableHasOneItem();
+
+    // Cleanup
+    Then.iTeardownMyApp();
+  });
 });
