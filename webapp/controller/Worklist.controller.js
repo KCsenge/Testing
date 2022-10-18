@@ -5,8 +5,17 @@ sap.ui.define(
     "../model/formatter",
     "../model/FlaggedType",
     "sap/m/library",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
   ],
-  function (BaseController, JSONModel, formatter, mobileLibrary) {
+  function (
+    BaseController,
+    JSONModel,
+    formatter,
+    mobileLibrary,
+    Filter,
+    FilterOperator
+  ) {
     "use strict";
 
     return BaseController.extend(
@@ -102,6 +111,20 @@ sap.ui.define(
             "/worklistTableTitle",
             sTitle
           );
+        },
+
+        onFilterPosts: function (oEvent) {
+          // build filter array
+          var aFilter = [];
+          var sQuery = oEvent.getParameter("query");
+          if (sQuery) {
+            aFilter.push(new Filter("Title", FilterOperator.Contains, sQuery));
+          }
+
+          // filter binding
+          var oTable = this.byId("table");
+          var oBinding = oTable.getBinding("items");
+          oBinding.filter(aFilter);
         },
 
         /* =========================================================== */
