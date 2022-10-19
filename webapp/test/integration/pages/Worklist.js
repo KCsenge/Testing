@@ -29,9 +29,10 @@ sap.ui.define(
               id: sTableId,
               viewName: sViewName,
               actions: new Press(),
-              errorMessage: "The table does not have a trigger.",
+              errorMessage: "The table does not have a trigger",
             });
           },
+
           iPressOnTheItemWithTheID: function (sId) {
             return this.waitFor({
               controlType: "sap.m.ColumnListItem",
@@ -40,9 +41,10 @@ sap.ui.define(
                 path: "/Posts('" + sId + "')",
               }),
               actions: new Press(),
-              errorMessage: "No list item with the id " + sId + " was found.",
+              errorMessage: "No list item with the ID " + sId + " was found.",
             });
           },
+
           iSearchFor: function (sSearchString) {
             return this.waitFor({
               id: "searchField",
@@ -66,12 +68,13 @@ sap.ui.define(
               success: function () {
                 Opa5.assert.ok(
                   true,
-                  "The table contains one corresponding entry"
+                  "The table contains one corresponding item."
                 );
               },
               errorMessage: "The table does not contain one item.",
             });
           },
+
           theTableShouldHavePagination: function () {
             return this.waitFor({
               id: sTableId,
@@ -121,6 +124,7 @@ sap.ui.define(
                 "The table header does not contain the number of items: 23",
             });
           },
+
           iShouldSeeTheTable: function () {
             return this.waitFor({
               id: sTableId,

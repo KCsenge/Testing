@@ -1,21 +1,18 @@
 {
-  "name": "TestingTutorial",
+  "name": "sap.m.tutorial.testing.12",
   "version": "1.0.0",
   "author": "SAP SE",
-  "description": "UI5 Demo App - Testing Tutorial",
-  "private": true,
+  "description": "Code: Testing - Step 12 - Adding a Search",
   "scripts": {
     "start": "ui5 serve",
-    "lint": "eslint webapp"
+    "build": "ui5 build"
   },
   "dependencies": {
+    "@openui5/themelib_sap_fiori_3": "^1",
     "@openui5/sap.m": "^1",
-    "@openui5/sap.ui.core": "^1",
-    "@openui5/sap.ui.layout": "^1",
-    "@openui5/themelib_sap_fiori_3": "^1"
+    "@openui5/sap.ui.core": "^1"
   },
   "devDependencies": {
-    "@ui5/cli": "^2.14.4",
-    "eslint": "^4.19.1"
+    "@ui5/cli": "^2.0.0"
   }
 }

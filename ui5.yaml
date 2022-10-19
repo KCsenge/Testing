@@ -1,6 +1,6 @@
-specVersion: "2.6"
+specVersion: "2.3"
 metadata:
-  name: TestingTutorial
+  name: "sap.m.tutorial.testing.12"
 type: application
 resources:
   configuration:

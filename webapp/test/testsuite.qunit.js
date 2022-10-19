@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 window.suite = function () {
   "use strict";
 

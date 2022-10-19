@@ -6,7 +6,9 @@ sap.ui.define(
   ],
   function (Opa5, Properties, Press) {
     "use strict";
+
     var sViewName = "Post";
+
     Opa5.createPageObjects({
       onThePostPage: {
         actions: {
@@ -22,19 +24,15 @@ sap.ui.define(
         assertions: {
           theTitleShouldDisplayTheName: function (sName) {
             return this.waitFor({
-              success: function () {
-                return this.waitFor({
-                  id: "objectHeader",
-                  viewName: sViewName,
-                  matchers: new Properties({
-                    title: sName,
-                  }),
-                  success: function (oPage) {
-                    Opa5.assert.ok(true, "was on the remembered detail page");
-                  },
-                  errorMessage: "The Post " + sName + " is not shown",
-                });
+              id: "objectHeader",
+              viewName: sViewName,
+              matchers: new Properties({
+                title: sName,
+              }),
+              success: function (oPage) {
+                Opa5.assert.ok(true, "was on the remembered detail page");
               },
+              errorMessage: "The Post " + sName + " is not shown",
             });
           },
         },

@@ -1,5 +1,6 @@
 sap.ui.define(["sap/ui/model/SimpleType"], function (SimpleType) {
   "use strict";
+
   return SimpleType.extend("sap.ui.demo.bulletinboard.model.FlaggedType", {
     /**
      * Formats the integer value from the model to a boolean for the pressed state of the flagged button
@@ -11,8 +12,9 @@ sap.ui.define(["sap/ui/model/SimpleType"], function (SimpleType) {
     formatValue: function (iFlagged) {
       return iFlagged === 1;
     },
+
     /**
-     * Parses a boolean value from the property to an integer
+     * Parses a boolean value from the property to a integer
      *
      * @public
      * @param {boolean} bFlagged true means flagged, false means not flagged
@@ -25,11 +27,12 @@ sap.ui.define(["sap/ui/model/SimpleType"], function (SimpleType) {
 
       return 0;
     },
+
     /**
      * Validates the value to be parsed
      *
      * @public
-     * Since there is only true and false, no client side validation is required
+     * Since there is only true and false, no client side validation is defined
      * @returns {boolean} true
      */
     validateValue: function () {

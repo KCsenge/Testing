@@ -12,6 +12,7 @@ sap.ui.define(
     BaseController,
     JSONModel,
     formatter,
+    FlaggedType,
     mobileLibrary,
     Filter,
     FilterOperator
@@ -21,6 +22,10 @@ sap.ui.define(
     return BaseController.extend(
       "sap.ui.demo.bulletinboard.controller.Worklist",
       {
+        types: {
+          flagged: new FlaggedType(),
+        },
+
         formatter: formatter,
 
         /* =========================================================== */
@@ -68,20 +73,7 @@ sap.ui.define(
         /* =========================================================== */
         /* event handlers                                              */
         /* =========================================================== */
-        /**
-         * Event handler when a table item gets pressed
-         * @param {sap.ui.base.Event} oEvent the table selectionChange event
-         * @public
-         */
-        onPress: function (oEvent) {
-          this.getRouter().navTo("post", {
-            // The source is the list item that got pressed
-            postId: oEvent
-              .getSource()
-              .getBindingContext()
-              .getProperty("PostID"),
-          });
-        },
+
         /**
          * Triggered by the table's 'updateFinished' event: after new table
          * data is available, this handler method updates the table counter.
@@ -113,6 +105,11 @@ sap.ui.define(
           );
         },
 
+        /**
+         * Triggered by the SearchFields's 'search' event
+         * @param {sap.ui.base.Event} oEvent SearchFields's search event
+         * @public
+         */
         onFilterPosts: function (oEvent) {
           // build filter array
           var aFilter = [];
@@ -125,6 +122,21 @@ sap.ui.define(
           var oTable = this.byId("table");
           var oBinding = oTable.getBinding("items");
           oBinding.filter(aFilter);
+        },
+
+        /**
+         * Event handler when a table item gets pressed
+         * @param {sap.ui.base.Event} oEvent the table selectionChange event
+         * @public
+         */
+        onPress: function (oEvent) {
+          this.getRouter().navTo("post", {
+            // The source is the list item that got pressed
+            postId: oEvent
+              .getSource()
+              .getBindingContext()
+              .getProperty("PostID"),
+          });
         },
 
         /* =========================================================== */

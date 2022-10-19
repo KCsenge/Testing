@@ -1,7 +1,7 @@
 <mvc:View controllerName="sap.ui.demo.bulletinboard.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic">
     <semantic:FullscreenPage id="page" title="{i18n>worklistViewTitle}">
         <semantic:content>
-            <Table id="table" growing="true" width="auto" class="sapUiResponsiveMargin" items="{
+            <Table id="table" width="auto" class="sapUiResponsiveMargin" growing="true" items="{
 					path: '/Posts',
 					sorter: {
 						path: 'Title',
@@ -16,13 +16,13 @@
                     </Toolbar>
                 </headerToolbar>
                 <columns>
-                    <Column width="33%" id="nameColumn">
+                    <Column width="33%" id="nameColumn" vAlign="Middle">
                         <Text text="{i18n>TableNameColumnTitle}" id="nameColumnTitle" />
                     </Column>
-                    <Column width="33%" id="categoryColumn">
+                    <Column width="33%" id="categoryColumn" vAlign="Middle">
                         <Text text="{i18n>TableCategoryColumnTitle}" id="categoryColumnTitle" />
                     </Column>
-                    <Column width="33%" id="unitNumberColumn" hAlign="End">
+                    <Column width="33%" id="unitNumberColumn" hAlign="End" vAlign="Middle">
                         <Text text="{i18n>TableUnitNumberColumnTitle}" id="unitNumberColumnTitle" />
                     </Column>
                     <Column width="80px" id="flaggedColumn" demandPopin="true" vAlign="Middle" />
@@ -33,16 +33,16 @@
                             <ObjectIdentifier title="{Title}" />
                             <Text text="{Category}" />
                             <ObjectNumber number="{
-									path: 'Price',
-									formatter: '.formatter.numberUnit'
-								}" state="{
-									path: 'Price',
-									formatter: '.formatter.priceState'
-								}" unit="{Currency}" />
+										path: 'Price',
+										formatter: '.formatter.numberUnit'
+									}" state="{
+										path: 'Price',
+										formatter: '.formatter.priceState'
+									}" unit="{Currency}" />
                             <ToggleButton id="flaggedButton" tooltip="{i18n>flaggedTooltip}" icon="sap-icon://flag" pressed="{
-						path: 'Flagged',
-						type: 'sap.ui.demo.bulletinboard.model.FlaggedType'
-					}" class="sapUiMediumMarginBeginEnd" />
+										path: 'Flagged',
+										type: '.types.flagged'
+									}" class="sapUiMediumMarginBeginEnd" />
                         </cells>
                     </ColumnListItem>
                 </items>
